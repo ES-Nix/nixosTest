@@ -5,6 +5,10 @@ build \
 github:ES-Nix/nixosTest/2f37db3fe507e725f5e94b42a942cdfef30e5d75#checks.x86_64-linux.test-nixos
 ```
 
+
+nix build .#checks.x86_64-linux.test-nixos
+
+
 ```bash
 nix \
 flake \

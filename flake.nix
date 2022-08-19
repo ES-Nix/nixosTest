@@ -14,13 +14,13 @@
     in
     {
 
-       devShell = pkgsAllowUnfree.mkShell {
+       devShells.default = pkgsAllowUnfree.mkShell {
          buildInputs = with pkgsAllowUnfree; [ bashInteractive coreutils ];
        };
 
       checks = {
           test-nixos = import ./default.nix {
-                pkgs = nixpkgs.legacyPackages.${system};
+                pkgs = nixpkgs.legacyPackages."x86_64-linux";
               };
         };
 
