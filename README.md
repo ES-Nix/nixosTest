@@ -26,3 +26,12 @@ cd nixosTest
 git checkout 2f37db3fe507e725f5e94b42a942cdfef30e5d75
 nix build .#checks.x86_64-linux.test-nixos
 ```
+
+
+```bash
+echo 'Start kvm stuff...' \
+&& getent group kvm || sudo groupadd kvm \
+&& sudo usermod --append --groups kvm "$USER" \
+&& sudo -k chown "$(id -u)"':'"$(id -g)" /dev/kvm \
+&& echo 'End kvm stuff!'
+```
