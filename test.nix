@@ -32,5 +32,5 @@
   # Disable linting for simpler debugging of the testScript
   skipLint = true;
 
-  testScript = "${builtins.readfile ./tests_kubernetes.py}";
+  testScript = "${builtins.readFile ./tests_kubernetes.py}";
 }
