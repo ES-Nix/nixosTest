@@ -35,3 +35,13 @@ echo 'Start kvm stuff...' \
 && sudo -k chown "$(id -u)"':'"$(id -g)" /dev/kvm \
 && echo 'End kvm stuff!'
 ```
+
+
+
+TODO:
+
+``` python
+@polling_condition(seconds_interval=0.2)
+def test_if_certmgr_is_running():
+    machine.succeed("systemctl is-active certmgr.service")
+```
