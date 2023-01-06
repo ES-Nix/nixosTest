@@ -11,6 +11,8 @@
           system = "x86_64-linux";
           config = { allowUnfree = true; };
         };
+
+        nixos-lib = import (nixpkgs + "/nixos/lib") {};
     in
     {
 
@@ -19,9 +21,11 @@
        };
 
       checks = {
-          test-nixos = import ./default.nix {
-                pkgs = nixpkgs.legacyPackages."x86_64-linux";
-              };
+          test-nixos = nixos-lib.runTest {
+            imports = [ ./test.nix ];
+
+            hostPkgs = pkgsAllowUnfree;  # the Nixpkgs package set used outside the VMs
+          };
         };
 
   });
