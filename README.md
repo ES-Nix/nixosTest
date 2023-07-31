@@ -1,30 +1,47 @@
 
 ```bash
+# nix flake metadata github:ES-Nix/nixosTest/kubernetes
 nix \
 build \
-github:ES-Nix/nixosTest/2f37db3fe507e725f5e94b42a942cdfef30e5d75#checks.x86_64-linux.test-nixos
+--no-link \
+--print-build-logs \
+--print-out-paths \
+github:ES-Nix/nixosTest/018b32fb5584114c518635413673354dfb768713#checks.x86_64-linux.test-nixos
 ```
-
 
 ```bash
 nix \
 build \
-github:ES-Nix/nixosTest/608fe8b0a39db139acd07eb1f88cad0a12f24cd8#checks.x86_64-linux.test-nixos
+--no-link \
+--print-build-logs \
+--print-out-paths \
+github:ES-Nix/nixosTest/kubernetes#checks.x86_64-linux.test-nixos
+
+nix \
+build \
+--no-link \
+--print-build-logs \
+--print-out-paths \
+--rebuild \
+github:ES-Nix/nixosTest/kubernetes#checks.x86_64-linux.test-nixos
 ```
+
 
 ```bash
 nix \
 flake \
-clone github:ES-Nix/nixosTest/minimal-working-example \
---dest nixosTest/
+clone github:ES-Nix/nixosTest/kubernetes \
+--dest nixosTest/ \
+&& cd nixosTest 1> /dev/null 2> /dev/null \
+&& ((direnv 1>/dev/null 2>/dev/null && direnv allow) || nix develop .#)
 ```
 
 
 ```bash
-git clone https://github.com/ES-Nix/nixosTest.git
-cd nixosTest
-git checkout 2f37db3fe507e725f5e94b42a942cdfef30e5d75
-nix build .#checks.x86_64-linux.test-nixos
+git clone https://github.com/ES-Nix/nixosTest.git \
+&& cd nixosTest \
+&& git checkout kubernetes \
+&& nix build .#checks.x86_64-linux.test-nixos
 ```
 
 
