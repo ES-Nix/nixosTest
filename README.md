@@ -15,6 +15,7 @@ build \
 --no-link \
 --print-build-logs \
 --print-out-paths \
+--refresh \
 github:ES-Nix/nixosTest/kubernetes#checks.x86_64-linux.test-nixos
 
 nix \
