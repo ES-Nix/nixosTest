@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+
+  name = "k8snixos";
   nodes = {
     machine = { machine, pkgs, ... }: {
       virtualisation = {
