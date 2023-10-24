@@ -6,7 +6,16 @@ build \
 --no-link \
 --print-build-logs \
 --print-out-paths \
-github:ES-Nix/nixosTest/cf75d2f8233d77fdd52445d7dca97b7b8df8aee6#checks.x86_64-linux.test-nixos
+--refresh \
+github:ES-Nix/nixosTest/05c4704de9cdf64d6f6989772175568cd2598868#checks.x86_64-linux.test-nixos
+```
+
+
+```bash
+nix \
+flake \
+lock \
+--override-input nixpkgs github:NixOS/nixpkgs/ea4c80b39be4c09702b0cb3b42eab59e2ba4f24b
 ```
 
 ```bash
